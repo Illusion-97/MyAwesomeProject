@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticleDto {
+public class ArticleCategoryDto {
     private long id;
-    private int version;
-    private String title;
-    /*private String categoryName;
-    private Long categoryId;*/
-    private ArticleCategoryDto category;
-
+    private String name;
 }

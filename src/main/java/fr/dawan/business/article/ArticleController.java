@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("articles")
-public class ArticleController extends GenericController<Article, ArticleDto, ArticleService> {
+public class ArticleController extends GenericController<ArticleDto, ArticleService> {
 
     public ArticleController(ArticleService service) {
         super(service);
     }
 
     @GetMapping("byTitle/{title}")
-    public Page<Article> findByTitle(@PathVariable String title, Pageable pageable) {
+    public Page<ArticleDto> findByTitle(@PathVariable String title, Pageable pageable) {
         return service.findByTitle(title, pageable);
     }
 
     @GetMapping("byCategory/{name}")
-    public Page<Article> findByCategoryNameLike(@PathVariable String name, Pageable pageable) {
+    public Page<ArticleDto> findByCategoryNameLike(@PathVariable String name, Pageable pageable) {
         return service.findByCategory_NameLike(name, pageable);
     }
 }

@@ -14,12 +14,12 @@ public class ArticleServiceImpl extends GenericServiceImpl<Article, ArticleRepos
     }
 
     @Override
-    public Page<Article> findByTitle(String title, Pageable pageable) {
-        return repository.findByTitleLike("%" + title + "%", pageable);
+    public Page<ArticleDto> findByTitle(String title, Pageable pageable) {
+        return repository.findByTitleLike("%" + title + "%", pageable).map(mapper::toDto);
     }
 
     @Override
-    public Page<Article> findByCategory_NameLike(String name, Pageable pageable) {
-        return repository.findByCategory_NameLike("%" + name + "%", pageable);
+    public Page<ArticleDto> findByCategory_NameLike(String name, Pageable pageable) {
+        return repository.findByCategory_NameLike("%" + name + "%", pageable).map(mapper::toDto);
     }
 }

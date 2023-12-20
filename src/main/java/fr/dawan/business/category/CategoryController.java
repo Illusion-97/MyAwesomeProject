@@ -10,14 +10,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("categories")
-public class CategoryController extends GenericController<Category, CategoryDto, CategoryService> {
+public class CategoryController extends GenericController<CategoryDto, CategoryService> {
 
     public CategoryController(CategoryService service) {
         super(service);
     }
 
-    @GetMapping("toDto/{id}")
-    public Optional<CategoryDto> findDtoById(@PathVariable long id) {
-        return service.findDtoById(id);
-    }
 }

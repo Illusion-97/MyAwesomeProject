@@ -16,5 +16,5 @@ public class CategoryDto {
     private long id;
     private int version;
     private String name;
-    private List<ArticleDto> articles;
+    private List<CategoryArticleDto> articles;
 }

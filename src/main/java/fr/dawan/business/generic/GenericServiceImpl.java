@@ -14,29 +14,28 @@ public abstract class GenericServiceImpl<
         R extends JpaRepository<E, Long>,
         D,
         M extends GenericMapper<E,D>
-        > implements GenericService<E,D> {
+        > implements GenericService<D> {
 
     protected final R repository;
     protected final M mapper;
     @Override
-    public Page<E> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public Page<D> findAll(Pageable pageable) {
+        return repository.findAll(pageable).map(mapper::toDto);
     }
 
     @Override
-    public Optional<E> findById(long id) {
-        return repository.findById(id);
-    }
-
-
-    @Override
-    public Optional<D> findDtoById(long id) {
+    public Optional<D> findById(long id) {
         return repository.findById(id).map(mapper::toDto);
     }
 
+
     @Override
-    public E saveOrUpdate(E entity) {
-        return repository.save(entity);
+    public D saveOrUpdate(D dto) {
+        /*E entity = mapper.toEntity(dto);
+        entity = repository.save(entity);
+        dto = mapper.toDto(entity);
+        return dto;*/
+        return mapper.toDto(repository.save(mapper.toEntity(dto)));
     }
 
     @Override
