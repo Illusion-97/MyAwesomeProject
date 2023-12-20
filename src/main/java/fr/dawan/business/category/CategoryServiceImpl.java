@@ -10,6 +10,5 @@ public class CategoryServiceImpl extends GenericServiceImpl<Category, CategoryRe
 
     public CategoryServiceImpl(CategoryRepository repository, CategoryMapper mapper) {
         super(repository,mapper);
-
     }
 }
