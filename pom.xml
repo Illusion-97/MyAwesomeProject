@@ -74,6 +74,8 @@
     </reporting>
 
     <build>
+        <!--Nom du jar-->
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
