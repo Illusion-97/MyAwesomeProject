@@ -22,4 +22,8 @@ public class ArticleServiceImpl extends GenericServiceImpl<Article, ArticleRepos
     public Page<ArticleDto> findByCategory_NameLike(String name, Pageable pageable) {
         return repository.findByCategory_NameLike("%" + name + "%", pageable).map(mapper::toDto);
     }
+
+    private void NewCodeWithSmell() {
+        System.out.println("This stinks !");
+    }
 }

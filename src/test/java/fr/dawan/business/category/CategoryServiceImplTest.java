@@ -55,4 +55,6 @@ class CategoryServiceImplTest {
         // Vérifie que les résultats dans la page (content) sont bien ceux attendus
         assertTrue(result.getContent().containsAll(expected));
     }
+
+
 }
