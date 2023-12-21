@@ -48,7 +48,7 @@ class ArticleControllerTest {
                 .andExpect( // Corresponds à un 'Assert'
                 status().isOk()
         ).andExpect( // Vous pouvez enchainer autant de andExpect que vous le souhaitez pour vérifier différents éléments
-                jsonPath("$.content") // jsonPath("$") corresponds au body de la réponse http
+                jsonPath("$.content") // jsonPath("$") correspond au body de la réponse http
                         .isNotEmpty()
                 ).andExpect(jsonPath("$.numberOfElements").value(2));
     }
