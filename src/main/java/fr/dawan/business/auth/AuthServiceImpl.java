@@ -4,6 +4,7 @@ import fr.dawan.business.user.User;
 import fr.dawan.business.user.UserMapper;
 import fr.dawan.business.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,12 +12,13 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository repository;
+    private final PasswordEncoder encoder;
     private final UserMapper mapper;
 
     @Override
     public void register(RegisterDto registerDto) {
-        String encodedPassword = registerDto.getPassword();
-        User newUser = new User(registerDto.getUsername(), registerDto.getEmail(), encodedPassword);
+        String encodedPassword = encoder.encode(registerDto.getPassword());
+        User newUser = new User(registerDto.getUsername(), registerDto.getEmail(), encodedPassword, "PUBLIC");
         repository.save(newUser);
     }
 
