@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping
     public String index() {
-        return "Hello !";
+        return "Subscribe to my OnlyHands !";
     }
 }
