@@ -29,6 +29,7 @@ pipeline {
             steps {
                 script {
                     bat "docker image prune"
+                    bat "y"
                     dockerImage = docker.build('myawesomeproject:latest')
                }
             }
