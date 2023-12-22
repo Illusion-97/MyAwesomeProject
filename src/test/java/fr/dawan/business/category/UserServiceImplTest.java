@@ -16,7 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class) // Permet l'utilisation de Mocks
-class CategoryServiceImplTest {
+class UserServiceImplTest {
 
     private CategoryServiceImpl service;
 
