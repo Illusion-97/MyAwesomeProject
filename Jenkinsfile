@@ -28,8 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker image prune"
-                    echo "y"
+                    bat "docker image prune -f"
                     dockerImage = docker.build('myawesomeproject:latest')
                }
             }
